@@ -5,16 +5,16 @@ GenerateNetwork = function(input, output, session, parentSession)
   cluster_n_MAX = 5000
   cluster_c_MAX = 500
   grid_n_MAX = 50
-  
+
   # just change the view
   shiny::observeEvent({input$view_network},{shiny::updateNavbarPage(parentSession, "mainpage", "view")})
-  
+
   # update button label and icon
   observeEvent({input$add_network},{
     icon = if(input$add_network) shiny::icon("minus-circle")
     else shiny::icon("plus-circle")
     updateButton(session, session$ns("add_network"), label = ifelse(input$add_network, " Remove network", " Add network"), icon = icon)
-  }, ignoreInit = T)
+  }, ignoreInit = TRUE)
 
   # network object
   network = shiny::reactive({
@@ -22,8 +22,8 @@ GenerateNetwork = function(input, output, session, parentSession)
       switch(as.numeric(input$network_select),
              {
                shiny::validate(
-                 shiny::need(checkmate::testNumber(input$network_lower, lower = 0, finite = T), "Lower bound must be greater 0."),
-                 shiny::need(checkmate::testNumber(input$network_upper, lower = 0, finite = T), "Upper bound must be greater 0."),
+                 shiny::need(checkmate::testNumber(input$network_lower, lower = 0, finite = TRUE), "Lower bound must be greater 0."),
+                 shiny::need(checkmate::testNumber(input$network_upper, lower = 0, finite = TRUE), "Upper bound must be greater 0."),
                  shiny::need(input$network_lower < input$network_upper, "Lower bound must be smaller than upper bound."))
                switch (as.numeric(input$network_type),
                        {
@@ -44,18 +44,18 @@ GenerateNetwork = function(input, output, session, parentSession)
                )
              },
              {
-               shiny::validate(shiny::need(try({netgen::importFromTSPlibFormat(input$network_file$datapath)}, silent = T), "Please select a valid file to import. The file must include a network in (extended) TSPlib format."))
+               shiny::validate(shiny::need(try({netgen::importFromTSPlibFormat(input$network_file$datapath)}, silent = TRUE), "Please select a valid file to import. The file must include a network in (extended) TSPlib format."))
                netgen::importFromTSPlibFormat(input$network_file$datapath)
              }
       )
-      
+
     }
     else{
       network1 = switch(as.numeric(input$network_a_select),
                         {
                           shiny::validate(
-                            shiny::need(checkmate::testNumber(input$network_a_lower, lower = 0, finite = T), "[Network A] Lower bound must be greater 0 for network A."),
-                            shiny::need(checkmate::testNumber(input$network_a_upper, lower = 0, finite = T), "[Network A] Upper bound must be greater 0 for network A."),
+                            shiny::need(checkmate::testNumber(input$network_a_lower, lower = 0, finite = TRUE), "[Network A] Lower bound must be greater 0 for network A."),
+                            shiny::need(checkmate::testNumber(input$network_a_upper, lower = 0, finite = TRUE), "[Network A] Upper bound must be greater 0 for network A."),
                             shiny::need(input$network_a_lower < input$network_a_upper, "[Network A] Lower bound must be smaller than upper bound for network A."))
                           switch (as.numeric(input$network_a_type),
                                   {
@@ -76,15 +76,15 @@ GenerateNetwork = function(input, output, session, parentSession)
                           )
                         },
                         {
-                          shiny::validate(shiny::need(try({netgen::importFromTSPlibFormat(input$network_a_file$datapath)}, silent = T), "[Network A] Please select a valid file to import. The file must include a network in (extended) TSPlib format."))
+                          shiny::validate(shiny::need(try({netgen::importFromTSPlibFormat(input$network_a_file$datapath)}, silent = TRUE), "[Network A] Please select a valid file to import. The file must include a network in (extended) TSPlib format."))
                           netgen::importFromTSPlibFormat(input$network_a_file$datapath)
                         }
       )
       network2 = switch(as.numeric(input$network_b_select),
                         {
                           shiny::validate(
-                            shiny::need(checkmate::testNumber(input$network_b_lower, lower = 0, finite = T), "[Network B] Lower bound must be greater 0 for network B."),
-                            shiny::need(checkmate::testNumber(input$network_b_upper, lower = 0, finite = T), "[Network B] Upper bound must be greater 0 for network B."),
+                            shiny::need(checkmate::testNumber(input$network_b_lower, lower = 0, finite = TRUE), "[Network B] Lower bound must be greater 0 for network B."),
+                            shiny::need(checkmate::testNumber(input$network_b_upper, lower = 0, finite = TRUE), "[Network B] Upper bound must be greater 0 for network B."),
                             shiny::need(input$network_b_lower < input$network_b_upper, "[Network B] Lower bound must be smaller than upper bound for network B."))
                           switch (as.numeric(input$network_b_type),
                                   {
@@ -105,7 +105,7 @@ GenerateNetwork = function(input, output, session, parentSession)
                           )
                         },
                         {
-                          shiny::validate(shiny::need(try({netgen::importFromTSPlibFormat(input$network_b_file$datapath)}, silent = T), "[Network B] Please select a valid file to import. The file must include a network in (extended) TSPlib format."))
+                          shiny::validate(shiny::need(try({netgen::importFromTSPlibFormat(input$network_b_file$datapath)}, silent = TRUE), "[Network B] Please select a valid file to import. The file must include a network in (extended) TSPlib format."))
                           netgen::importFromTSPlibFormat(input$network_b_file$datapath)
                         }
       )
