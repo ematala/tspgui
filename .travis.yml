@@ -1,0 +1,23 @@
+# travis config, based on https://github.com/craigcitro/r-travis
+
+language: r
+sudo: false
+cache: packages
+
+r:
+  - release
+  - devel
+
+r_packages:
+  - covr
+
+after_success:
+  - Rscript -e 'library(covr);library(testthat);library(checkmate);installed.packages();devtools::loaded_packages()'
+  - Rscript -e '(cov = covr::package_coverage());covr::codecov(coverage = cov);covr::coveralls(coverage = cov)'
+
+notifications:
+  email:
+    recipients:
+      - eric.matala@uni-muenster.de
+    on_success: change
+    on_failure: always
