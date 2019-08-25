@@ -9,5 +9,5 @@ Maintainer: Eric Matala de Mazza <eric.matala@uni-muenster.de>
 License: GPL-3.0 + file LICENSE
 Encoding: UTF-8
 Imports: shiny, shinyjs, V8, shinyBS, shinythemes, shinyWidgets,
-         plotly, checkmate, netgen, tspgen, salesperson
+         plotly, checkmate, netgen
 LazyData: true
