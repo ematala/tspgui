@@ -1,3 +1,19 @@
+# shiny dependencies
+library(shiny)
+library(shinyjs)
+library(shinyBS)
+library(shinythemes)
+library(shinyWidgets)
+
+# other packages
+library(plotly)
+library(checkmate)
+
+# tsp related
+library(netgen)
+library(tspgen)
+library(salesperson)
+
 # UI elements
 ui = shiny::fluidPage(title = "Visualization of TSP Instance Generators", theme = shinythemes::shinytheme("simplex"), shinyjs::useShinyjs(), shinyjs::extendShinyjs(script = "www/script.js"), tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
                       shiny::navbarPage(title = "Visualization of TSP Instance Generators", id = "mainpage", position = "fixed-top", selected = "generate", collapsible = T,
