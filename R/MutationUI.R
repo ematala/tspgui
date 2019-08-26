@@ -9,6 +9,7 @@
 #' @param mutation.text Mutation text.
 #' @param mutation.params Data Frame including params for this mutations, i.e. preset, lower and upper constraints.
 #' @return A shiny container.
+#' @export
 
 MutationUI = function(id, mutation, mutation.name, mutation.call, mutation.text, mutation.params)
 {

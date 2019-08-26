@@ -1,17 +1,18 @@
 Package: tspgui
 Type: Package
 Title: A Dashboard for Vizualizing TSP Instances
-Description: Contains a shiny application for creating, modifying,
+Description: Contains modules for hosting a shiny application for creating, modifying,
              viewing and computing features of a TSP instance.
 Version: 1.0.0
 Author: Eric Matala de Mazza [aut, cre]
 Authors@R: c(person("Eric", "Matala de Mazza", email = "eric.matala@uni-muenster.de", role = c("aut", "cre")))
 Maintainer: Eric Matala de Mazza <eric.matala@uni-muenster.de>
-License: GPL-3
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 3.5.0)
-Imports: devtools, shiny, shinyjs, V8, shinyBS, shinythemes,
-         shinyWidgets, plotly, checkmate, netgen, cluster, nnet, class, BBmisc
-Suggests: tspgen, salesperson
+Remotes: tspgen, salesperson
+Imports: shiny, shinyjs, V8, shinyBS, shinythemes,
+         shinyWidgets, plotly, checkmate, netgen,
+         BBmisc, tspgen, salesperson, devtools
 LazyData: true
 RoxygenNote: 6.1.1

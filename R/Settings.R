@@ -6,6 +6,7 @@
 #' @param output Shiny output object.
 #' @param session Shiny session object.
 #' @return A reactive object holding the current settings.
+#' @export
 
 Settings = function(input, output, session)
 {

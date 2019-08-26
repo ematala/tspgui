@@ -4,6 +4,7 @@
 #'
 #' @param id A namespace for the UI.
 #' @return A shiny page.
+#' @export
 
 ComputeFeaturesUI = function(id)
 {

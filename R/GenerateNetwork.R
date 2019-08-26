@@ -7,6 +7,7 @@
 #' @param session Shiny session object.
 #' @param parentSession Shiny session object of parent session.
 #' @return A reactive object of class "Network".
+#' @export
 
 GenerateNetwork = function(input, output, session, parentSession)
 {
@@ -20,10 +21,10 @@ GenerateNetwork = function(input, output, session, parentSession)
   shiny::observeEvent({input$view_network},{shiny::updateNavbarPage(parentSession, "mainpage", "view")})
 
   # update button label and icon
-  observeEvent({input$add_network},{
+  shiny::observeEvent({input$add_network},{
     icon = if(input$add_network) shiny::icon("minus-circle")
     else shiny::icon("plus-circle")
-    updateButton(session, session$ns("add_network"), label = ifelse(input$add_network, " Remove network", " Add network"), icon = icon)
+    shinyBS::updateButton(session, session$ns("add_network"), label = ifelse(input$add_network, " Remove network", " Add network"), icon = icon)
   }, ignoreInit = TRUE)
 
   # network object

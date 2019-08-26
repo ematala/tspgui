@@ -7,6 +7,7 @@
 #' @param session Shiny session object.
 #' @param network A reactive object that holds a TSP instance of class "Network".
 #' @param settings A reactive object that holds a list including several settings.
+#' @export
 
 ComputeFeatures = function(input, output, session, network, settings)
 {
@@ -22,7 +23,7 @@ ComputeFeatures = function(input, output, session, network, settings)
         network = network$modifiedNetwork
         shinyjs::enable("download")
         lapply(salesperson::getAvailableFeatureSets()[salesperson::getAvailableFeatureSets() != "VRP"], function(featureSet){
-          allFeatures[featureSet] <<- list(eval(parse(text = paste0("get", featureSet, "FeatureSet(network())"))))
+          allFeatures[featureSet] <<- list(eval(parse(text = paste0("salesperson::get", featureSet, "FeatureSet(network())"))))
         })
       }else{
         shinyjs::disable("download")
@@ -49,6 +50,6 @@ ComputeFeatures = function(input, output, session, network, settings)
 
   output$download = shiny::downloadHandler(
     filename = function() {paste0(input$select_FeatureSet, "_FeatureSet.csv")},
-    content = function(file) {write.csv2(feats_as_df, file = file)}
+    content = function(file) {utils::write.csv2(feats_as_df, file = file)}
   )
 }

@@ -6,6 +6,7 @@
 #' @param mutations.all Helper object that holds mutation names and description texts.
 #' @param mutations.params Helper object that holds mutation names and param values, i.e. presets, lower and upper constraints.
 #' @return A shiny page.
+#' @export
 
 ModifyNetworkUI = function(id, mutations.all, mutations.params)
 {
@@ -27,8 +28,8 @@ ModifyNetworkUI = function(id, mutations.all, mutations.params)
                      shinyBS::bsTooltip(ns("set_probs"), "Should mutation probabilities be chosen uniform at random each iteration?", placement = "top"),
                      lapply(as.character(mutations.all$mutation), function(mut){
                        call = ""
-                       call = tail(paste0("(network, ", lapply(as.character(mutations.params$param.name[mutations.params$mutation == mut]), function(par){call <<- ifelse(identical(par, tail(as.character(mutations.params$param.name[mutations.params$mutation == mut]), 1)), paste0(call, par, ")"), paste0(call, par, ", "))})),1)
-                       MutationUI(ns(mut), mutation = mut, mutation.name = mutations.all$name[mutations.all$mutation == mut], mutation.call = shiny::p(paste0("network = tspgen::", mutations.all$call[mutations.all$mutation == mut], call), id = "code"), mutation.text = mutations.all$text[mutations.all$mutation == mut], mutation.params = mutations.params[mutations.params$mutation == mut,])})
+                       call = utils::tail(paste0("(network, ", lapply(as.character(mutations.params$param.name[mutations.params$mutation == mut]), function(par){call <<- ifelse(identical(par, utils::tail(as.character(mutations.params$param.name[mutations.params$mutation == mut]), 1)), paste0(call, par, ")"), paste0(call, par, ", "))})),1)
+                       tspgui::MutationUI(ns(mut), mutation = mut, mutation.name = mutations.all$name[mutations.all$mutation == mut], mutation.call = shiny::p(paste0("network = tspgen::", mutations.all$call[mutations.all$mutation == mut], call), id = "code"), mutation.text = mutations.all$text[mutations.all$mutation == mut], mutation.params = mutations.params[mutations.params$mutation == mut,])})
     )
   )
 }

@@ -10,6 +10,7 @@
 #' @param mutation.name Mutation name.
 #' @param mutation.params Data Frame including params for this mutations, i.e. preset, lower and upper constraints.
 #' @return A list containing reactive objects for current mutation values, a logical whether it is active and the probability.
+#' @export
 
 Mutation = function(input, output, session, parentSession, mutation, mutation.name, mutation.params)
 {
