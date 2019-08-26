@@ -7,6 +7,3 @@ runTspGui()
 \description{
 Checks dependencies and launches a shiny web application.
 }
-\examples{
-runTspGui()
-}

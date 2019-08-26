@@ -19,7 +19,7 @@ ModifyNetwork = function(input, output, session, parentSession, network, mutatio
       mutationObj = shiny::callModule(Mutation, mut, parentSession = session, mutation = mut, mutation.name = mutations.all$name[mutations.all$mutation == mut], mutation.params = mutations.params[mutations.params$mutation == mut,])
       pars = c(mutationObj$values(), list(collection = collection, fun = as.character(mutations.all$call[mutations.all$mutation == mut])))
       if(mutationObj$is.active)
-        collection <<- do.call(addMutator, pars)
+        collection <<- do.call(tspgen::addMutator, pars)
     })
 
     if(input$set_probs){
