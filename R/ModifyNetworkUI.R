@@ -1,3 +1,12 @@
+#' UI Module for Network Modification
+#'
+#' This Module provides a UI object for Network Modification
+#'
+#' @param id A namespace for the UI.
+#' @param mutations.all Helper object that holds mutation names and description texts.
+#' @param mutations.params Helper object that holds mutation names and param values, i.e. presets, lower and upper constraints.
+#' @return A shiny page.
+
 ModifyNetworkUI = function(id, mutations.all, mutations.params)
 {
   ns = shiny::NS(id)

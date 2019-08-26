@@ -1,3 +1,16 @@
+#' Server Module for Mutations
+#'
+#' This Module provides server logic for a single Mutation
+#'
+#' @param input Shiny input object.
+#' @param output Shiny output object.
+#' @param session Shiny session object.
+#' @param parentSession Shiny session object of parent session.
+#' @param mutation Mutation id.
+#' @param mutation.name Mutation name.
+#' @param mutation.params Data Frame including params for this mutations, i.e. preset, lower and upper constraints.
+#' @return A list containing reactive objects for current mutation values, a logical whether it is active and the probability.
+
 Mutation = function(input, output, session, parentSession, mutation, mutation.name, mutation.params)
 {
   # observe input changes and disable include button for bad values

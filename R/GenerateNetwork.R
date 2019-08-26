@@ -1,3 +1,13 @@
+#' Server Module for Network Generation
+#'
+#' This Module provides server logic for Network Generation
+#'
+#' @param input Shiny input object.
+#' @param output Shiny output object.
+#' @param session Shiny session object.
+#' @param parentSession Shiny session object of parent session.
+#' @return A reactive object of class "Network".
+
 GenerateNetwork = function(input, output, session, parentSession)
 {
   # max values for input validation

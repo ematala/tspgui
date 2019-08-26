@@ -1,3 +1,16 @@
+#' Server Module for Network Modification
+#'
+#' This Module provides server logic object for Network Modification.
+#'
+#' @param input Shiny input object.
+#' @param output Shiny output object.
+#' @param session Shiny session object.
+#' @param parentSession Shiny session object of parent session.
+#' @param network A reactive object that holds a TSP instance of class "Network".
+#' @param mutations.all Helper object that holds mutation names and description texts.
+#' @param mutations.params Helper object that holds mutation names and param values, i.e. presets, lower and upper constraints.
+#' @return A list holding reactive objects for the current collection of mutation operators and the modified network.
+
 ModifyNetwork = function(input, output, session, parentSession, network, mutations.all, mutations.params)
 {
   # max value for n.iters

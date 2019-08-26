@@ -1,3 +1,10 @@
+#' UI Module for Network Plotting
+#'
+#' This Module provides a UI object for Network Plotting
+#'
+#' @param id A namespace for the UI.
+#' @return A shiny page.
+
 ViewNetworkUI = function(id)
 {
   ns = shiny::NS(id)

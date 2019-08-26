@@ -1,3 +1,10 @@
+#' UI Module for Network Generation
+#'
+#' This Module provides a UI object for Network Generation
+#'
+#' @param id A namespace for the UI.
+#' @return A shiny page.
+
 GenerateNetworkUI = function(id)
 {
   ns = shiny::NS(id)

@@ -1,3 +1,10 @@
+#' UI Module for Settings
+#'
+#' This Module provides a UI object for Application Settings
+#'
+#' @param id A namespace for the UI.
+#' @return A shiny page.
+
 SettingsUI = function(id)
 {
   ns = shiny::NS(id)

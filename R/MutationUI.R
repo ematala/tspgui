@@ -1,3 +1,15 @@
+#' UI Module for Mutations
+#'
+#' This Module provides a UI object for a single Mutation
+#'
+#' @param id A namespace for the UI.
+#' @param mutation Mutation id.
+#' @param mutation.name Mutation name.
+#' @param mutation.call Mutation call.
+#' @param mutation.text Mutation text.
+#' @param mutation.params Data Frame including params for this mutations, i.e. preset, lower and upper constraints.
+#' @return A shiny container.
+
 MutationUI = function(id, mutation, mutation.name, mutation.call, mutation.text, mutation.params)
 {
   ns = shiny::NS(id)

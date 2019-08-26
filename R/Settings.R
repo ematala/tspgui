@@ -1,3 +1,12 @@
+#' Server Module for Settings
+#'
+#' This Module provides server logic for Settings
+#'
+#' @param input Shiny input object.
+#' @param output Shiny output object.
+#' @param session Shiny session object.
+#' @return A reactive object holding the current settings.
+
 Settings = function(input, output, session)
 {
   # just return reactive version of settings inputs

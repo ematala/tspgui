@@ -1,3 +1,15 @@
+#' Perform Multiple Iterations of Mutations
+#'
+#' Performs Multiple Mutations on a given network.
+#'
+#' @param network An object of class "Network".
+#' @param collection An object of class "tspgen_collection".
+#' @param iters Number of iterations.
+#' @param return.all Should all interim instances be returned?
+#' @param upper Upper boundary for network points.
+#' @param bound.handling Occasionally during instance generation points are moved outside the boundaries of the point space. The parameter bound.handling determines how to deal with these points.
+#' @return A netgen network.
+
 doMultipleMutations = function (network, collection, iters = 10L, return.all = FALSE, upper = 1, bound.handling = "uniform")
 {
   tspgenfunctions = loadNamespace("tspgen")

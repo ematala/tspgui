@@ -1,3 +1,13 @@
+#' Run TSP gui application
+#'
+#' Checks dependencies and launches a shiny web application.
+#'
+#' @examples
+#' \donttest{
+#' runTspGui()
+#' }
+
+
 runTspGui = function()
 {
   # devtools
