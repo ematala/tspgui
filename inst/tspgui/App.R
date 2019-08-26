@@ -33,7 +33,7 @@ server = function(input, output, session){
   # call modules that return objects first
   settings = shiny::callModule(tspgui::Settings, "settings")
   currentNetwork = shiny::callModule(tspgui::GenerateNetwork, "generate_network", parentSession = session)
-  modifiedNetwork = shiny::callModule(tspgui::ModifyNetwork, "modify_network", parentSession = session, network = currentNetwork, mutations.all = mutations.all, mutations.params = mutations.params)
+  modifiedNetwork = shiny::callModule(tspgui::ModifyNetwork, "modify_network", parentSession = session, network = currentNetwork, mutations.all = tspgui::mutations.all, mutations.params = tspgui::mutations.params)
 
   # call modules that display objects
   shiny::callModule(tspgui::ViewNetwork, "view_network", parentSession = session, network = modifiedNetwork, settings = settings)
