@@ -1,12 +1,12 @@
 runTspGui = function()
 {
-  # dev tools
+  # devtools
   if (!requireNamespace("devtools", quietly = TRUE)) install.packages("devtools", quiet = TRUE)
 
   # tsp related
   if (!requireNamespace("netgen", quietly = TRUE)) install.packages("netgen", quiet = TRUE)
-  if (!requireNamespace("tspgen", quietly = TRUE)) devtools::install_github("jakobbossek/tspgen")
-  if (!requireNamespace("salesperson", quietly = TRUE)) devtools::install_github("jakobbossek/salesperson")
+  if (!requireNamespace("tspgen", quietly = TRUE)) devtools::install_github("jakobbossek/tspgen", dependencies = TRUE)
+  if (!requireNamespace("salesperson", quietly = TRUE)) devtools::install_github("jakobbossek/salesperson", dependencies = TRUE)
 
   # shiny related
   if (!requireNamespace("shiny", quietly = TRUE)) install.packages("shiny", quiet = TRUE)

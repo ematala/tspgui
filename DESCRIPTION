@@ -8,6 +8,7 @@ Author: Eric Matala de Mazza [aut, cre]
 Maintainer: Eric Matala de Mazza <eric.matala@uni-muenster.de>
 License: GPL-3.0 + file LICENSE
 Encoding: UTF-8
-Imports: shiny, shinyjs, V8, shinyBS, shinythemes, shinyWidgets,
-         plotly, checkmate, netgen
+Depends: R (>= 3.5.0)
+Imports: devtools, shiny, shinyjs, V8, shinyBS, shinythemes,
+         shinyWidgets, plotly, checkmate, netgen, cluster, nnet, class
 LazyData: true
