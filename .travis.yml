@@ -5,10 +5,11 @@ sudo: false
 cache: packages
 
 r:
-  - devel
+  - release
 
-r_packages:
-  - covr
+r_github_packages:
+  - jakobbossek/tspgen
+  - jakobbossk/salesperson
 
 after_success:
   - Rscript -e 'library(covr);library(testthat);library(checkmate);installed.packages();devtools::loaded_packages()'
