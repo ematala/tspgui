@@ -2,4 +2,5 @@
 ^\.Rproj\.user$
 .gitignore
 .git
+.travis.yml
 README.md
