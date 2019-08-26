@@ -35,7 +35,7 @@ doMultipleMutations = function (network, collection, iters = 10L, return.all = F
   }
   if (return.all)
     return(lapply(coords.list, netgen::makeNetwork, lower = 0, upper = upper))
-  return(netgen::makeNetwork(coordinates = coords * upper, name = network$name,
-                             comment = network$comment, membership = network$membership, edge.weight.type = network$edge.weight.type,
-                             lower = network$lower, upper = network$upper, opt.tour.length = network$opt.tour.length))
+  return(netgen::makeNetwork(coordinates = coords * upper, name = network$name, comment = network$comment,
+                             membership = network$membership, edge.weight.type = network$edge.weight.type,
+                             lower = network$lower, upper = network$upper))
 }
