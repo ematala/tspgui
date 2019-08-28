@@ -38,9 +38,6 @@ server = function(input, output, session){
   # call modules that display objects
   shiny::callModule(tspgui::ViewNetwork, "view_network", parentSession = session, network = modifiedNetwork, settings = settings)
   shiny::callModule(tspgui::ComputeFeatures, "compute_features", network = modifiedNetwork, settings = settings)
-
-  # stop app
-  session$onSessionEnded(stopApp)
 }
 
 shiny::shinyApp(ui, server)
