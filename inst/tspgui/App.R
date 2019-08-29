@@ -15,8 +15,8 @@ library(tspgen)
 library(salesperson)
 
 # UI elements
-ui = shiny::fluidPage(title = "Visualization of TSP Instance Generators", theme = shinythemes::shinytheme("simplex"), shinyjs::useShinyjs(), shinyjs::extendShinyjs(script = "www/script.js"), tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
-                      shiny::navbarPage(title = "Visualization of TSP Instance Generators", id = "mainpage", position = "fixed-top", selected = "generate", collapsible = TRUE,
+ui = shiny::fluidPage(title = "Visualization of TSP Instances", theme = shinythemes::shinytheme("simplex"), shinyjs::useShinyjs(), shinyjs::extendShinyjs(script = "www/script.js"), tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
+                      shiny::navbarPage(title = "Visualization of TSP Instances", id = "mainpage", position = "fixed-top", selected = "generate", collapsible = TRUE,
                                         shiny::tabPanel(title = "GENERATE", value = "generate", tspgui::GenerateNetworkUI("generate_network"), icon = shiny::icon("connectdevelop")),
                                         shiny::tabPanel(title = "MODIFY", value = "modify", tspgui::ModifyNetworkUI("modify_network", mutations.all = tspgui::mutations.all, mutations.params = tspgui::mutations.params), icon = shiny::icon("sliders")),
                                         shiny::tabPanel(title = "VIEW", value = "view", tspgui::ViewNetworkUI("view_network"), icon = shiny::icon("eye")),

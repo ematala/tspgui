@@ -17,7 +17,7 @@ GenerateNetworkUI = function(id)
   text_multiple = shiny::p(shiny::p("network = netgen::morphInstances(network_a, network_b, alpha)", id = "code"), "This function takes two (clustered) networks with equal number of nodes and generates another instance by applying a convex combination to the coordinates of node pairs. The node pairs are determined by a point matching algorithm, which solves this assignement problem via a integer programming procedure.")
 
   shiny::sidebarLayout(
-    shiny::sidebarPanel(width = 3, shiny::h3("Welcome!"), shiny::br(), "This ", shiny::a("shiny", href = "https://shiny.rstudio.com/", id = "code"), " application makes use of several ", shiny::a("R", href = "https://www.r-project.org/", id = "code") , " packages for experimenting with network graphs for instances of the", shiny::a("Traveling Salesperson Problem", href = "https://en.wikipedia.org/wiki/Travelling_salesman_problem", id = "code"), ".", shiny::br(), shiny::br(), "You can explore the functionality of those packages via this interactive web application!", shiny::br(), shiny::br(), "Start off by generating a network on this page. Afterwards, you may view it, modify it and generate feature sets."),
+    shiny::sidebarPanel(width = 3, shiny::h3("Welcome!"), shiny::br(), "This ", shiny::a("shiny", href = "https://shiny.rstudio.com/", id = "code"), " application makes use of several ", shiny::a("R", href = "https://www.r-project.org/", id = "code") , " packages for experimenting with network graphs for instances of the", shiny::a("Traveling Salesperson Problem", href = "https://en.wikipedia.org/wiki/Travelling_salesman_problem", id = "code"), ".", shiny::br(), shiny::br(), "You can explore the functionality of those packages via this interactive web application!", shiny::br(), shiny::br(), "Start off by generating a network on this page. Afterwards, you may view it, modify it and generate feature sets.", shiny::br(), shiny::br(), "The source code for this application is available ", shiny::a("here", href = "https://github.com/rictheric/tspgui", id = "code"), "!"),
     shiny::mainPanel(width = 9,
                      shiny::h1("Generate TSP instance"), text_general, shiny::hr(),
                      shiny::conditionalPanel(condition = paste0("input['", ns("network_select"),"'] == 1 && !input['", ns("add_network"),"'] && input['", ns("network_type"),"'] == 1"), shiny::h3("Random network"), text_random, shiny::hr()),
@@ -26,7 +26,7 @@ GenerateNetworkUI = function(id)
                      shiny::conditionalPanel(condition = paste0("input['", ns("network_select"),"'] == 2 && !input['", ns("add_network"),"']"), shiny::h3("File import"), text_file, shiny::hr()),
                      shiny::conditionalPanel(condition = paste0("input['", ns("add_network"),"']"), shiny::h3("Multiple networks"), text_multiple, shiny::hr()),
                      shiny::conditionalPanel(condition = paste0("!input['", ns("add_network"),"']"),
-                                             shiny::h3("Options for network"),
+                                             shiny::h3("Network options"),
                                              shinyWidgets::radioGroupButtons(ns("network_select"), choices = c("Generate" = 1, "Load from TSPlib file" = 2), justified = TRUE),
                                              shiny::conditionalPanel(condition = paste0("input['", ns("network_select"),"'] == 1"),
                                                                      shiny::fluidRow(
