@@ -17,7 +17,7 @@ Mutation = function(input, output, session, parentSession, mutation, mutation.na
   # observe input changes and disable include button for bad values
   shiny::observeEvent({lapply(as.character(mutation.params$param.name), function(par){eval(parse(text = paste0("input$", par)))})},{
     tmp = TRUE
-    lapply(as.character(mutation.params$param.name), function(par){tmp <<- tmp & checkmate::testNumber(eval(parse(text = paste0("input$", par))), lower = mutation.params$param.lower[mutation.params$param.name == par], upper = mutation.params$param.upper[mutation.params$param.name == par])})
+    lapply(as.character(mutation.params$param.name), function(par){tmp <<- tmp & checkmate::testNumber(eval(parse(text = paste0("input$", par))), lower = mutation.params$param.lower[mutation.params$param.name == par], upper = mutation.params$param.upper[mutation.params$param.name == par]) & eval(parse(text = paste0("input$", par, "<=", "input$", sub("min", "max", par))))})
     shinyBS::updateButton(session, session$ns("toggle_mutation"), disabled = !tmp)}, ignoreInit = TRUE)
 
   # observe mutation included
@@ -36,6 +36,7 @@ Mutation = function(input, output, session, parentSession, mutation, mutation.na
       low = mutation.params$param.lower[mutation.params$param.name == par]
       high = mutation.params$param.upper[mutation.params$param.name == par]
       shiny::validate(shiny::need(checkmate::testNumber(eval(parse(text = paste0("input$", par))), lower = low, upper = high), paste0("[", mutation.name, "] ", par, " argument must be between ", low, " and ", high, " for ", mutation.name, " mutation.")))
+      if(grepl("min", par)) shiny::validate(shiny::need(eval(parse(text = paste0("input$", par, "<=", "input$", sub("min", "max", par)))), paste0("[", mutation.name, "] ", par, " must not be greater than ", sub("min", "max", par))))
       eval(parse(text = paste0("input$", par)))}))
   })
 

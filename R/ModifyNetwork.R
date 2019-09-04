@@ -49,7 +49,7 @@ ModifyNetwork = function(input, output, session, parentSession, network, mutatio
   # network object
   modifiedNetwork = shiny::reactive({
     shiny::validate(shiny::need(checkmate::testNumber(input$iterations, lower = 0, upper = iters_MAX), paste0("Number of iterations must be between 0 and ", iters_MAX)))
-    if(length(currentCollection()$mutators) == 0) network()
+    if(!length(currentCollection()$mutators)) network()
     else suppressWarnings(tspgui::doMultipleMutations(network = network(), collection = currentCollection(), iters = input$iterations + 1L, upper = network()$upper))
   })
 
