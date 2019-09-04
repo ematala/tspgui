@@ -28,7 +28,7 @@ ViewNetwork = function(input, output, session, parentSession, network, settings)
 
     #TODO take care of color change-> with dark bg, labels should be white
     ax = list(titlefont = list(color = plotly::toRGB(settings()$plot.axis.color)), tickfont = list(color = plotly::toRGB(settings()$plot.axis.color)), gridcolor = plotly::toRGB(settings()$plot.axis.color), zerolinecolor = plotly::toRGB(settings()$plot.axis.color), linecolor = plotly::toRGB(settings()$plot.axis.color))
-    plotly::hide_colorbar(plotly::plot_ly(data = coordinates, x=~X, y=~Y, color=~C, colors = settings()$plot.colors, type = "scatter", mode = "markers")) %>%
+    plotly::hide_colorbar(plotly::plot_ly(data = coordinates, x=~X, y=~Y, color=~C, colors = settings()$plot.colors, type = "scatter", mode = "markers", size = I(8))) %>%
       plotly::layout(plot_bgcolor=settings()$plot.bg.color, paper_bgcolor=settings()$plot.bg.color)# %>%
       #layout(paper_bgcolor=settings()$plot.bg.color) #%>%
       # layout(xaxis = ax, yaxis = ax)
