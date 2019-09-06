@@ -21,8 +21,7 @@ SettingsUI = function(id)
                        shiny::checkboxInput(ns("compute_features"), "Compute all features? (Only recommended for networks with < 2000 points)", value = TRUE), shiny::hr(),
                        shiny::h3("Plot appearance"),
                        shiny::selectInput(ns("plot_colors"), "Select a colorpalette for network points", choices = c("Set1", "Set2", "Set3", "Paired", "Accent", "Dark2", "Spectral", "RdYlBu"), selectize = FALSE),
-                       shinyWidgets::radioGroupButtons(ns("plot_bg_color"), "Select background color", choices = c("transparent" = 'rgba(252, 252, 252, 0)', "light" = 'rgba(252, 252, 252, 1)', "dark" = 'rgba(28, 28, 28, 1)'), justified = TRUE),
-                       shinyWidgets::radioGroupButtons(ns("plot_axis_color"), "Select axis color", choices = c("dark" = 'black', "light" = 'white'), justified = TRUE))
+                       shinyWidgets::radioGroupButtons(ns("plot_bg_color"), "Select background color", choices = c("transparent" = 'rgba(252, 252, 252, 0)', "light" = 'rgba(252, 252, 252, 1)', "dark" = 'rgba(28, 28, 28, 1)'), justified = TRUE))
     )
   )
 }

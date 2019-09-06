@@ -11,7 +11,6 @@
 
 ComputeFeatures = function(input, output, session, network, settings)
 {
-  #TODO: Make allfeatures object reactive
   allFeatures = list()
   feats_as_df = NULL
 

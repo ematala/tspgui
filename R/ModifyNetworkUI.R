@@ -19,8 +19,6 @@ ModifyNetworkUI = function(id, mutations.all, mutations.params)
                      shiny::h1("Modify current network instance"), text_general, shiny::hr(),
                      shiny::h3("Collection"),
                      shiny::verbatimTextOutput(ns("currentCollection"), TRUE),
-                     #TODO implement?
-                     # shinyBS::bsButton(ns("example"), "See example", shiny::icon("play"), block = TRUE), shiny::br(),
                      shiny::fluidRow(
                        shiny::column(2, shiny::numericInput(ns("iterations"), "Iterations", 1, 0, 10000)),
                        shiny::column(10, shiny::div(shiny::tags$label("for" = ns("set_probs"), "Set probabilities"), shinyBS::bsButton(ns("set_probs"), "Uniform probabilities", type = "toggle", block = TRUE)))),

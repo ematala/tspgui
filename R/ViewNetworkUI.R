@@ -15,13 +15,9 @@ ViewNetworkUI = function(id)
                         shiny::textOutput(ns("name")),
                         shiny::textOutput(ns("points")),
                         shiny::textOutput(ns("cluster")),
-                        #TODO add or remove
-                        shiny::textOutput(ns("alpha")), shiny::hr(),
                         shiny::h3("Options"),
                         shinyBS::bsButton(ns("to_generate"), " Generate", shiny::icon("angle-double-right"), block = TRUE),
                         shinyBS::bsButton(ns("to_modify"), " Modify", shiny::icon("angle-double-right"), block = TRUE),
-                        #TODO implement?
-                        # shinyBS::bsButton(ns("example"), "See Example", block = TRUE),
                         shiny::downloadButton(ns("export"), " Export as TSPlib file", icon = shiny::icon("file"), class = "btn btn-default btn-block shiny-bound-input")
     ),
     shiny::mainPanel(width = 9,

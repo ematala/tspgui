@@ -1,6 +1,6 @@
 #' All available mutations in tspgen package
 #'
-#' Contains all avaibale mutation operators and corresponding description texts.
+#' Contains all available mutation operators and corresponding description texts.
 #'
 #' @name mutations.all
 #' @usage mutations.all
